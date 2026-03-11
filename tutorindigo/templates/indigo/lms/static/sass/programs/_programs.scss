@@ -1,4 +1,8 @@
 // Include custom programs page
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
 
 .program-list-wrapper {
     color: #111827;
@@ -16,9 +20,10 @@
         width: 100%;
         max-width: 100%;
         @include media-breakpoint-up(lg) {
-            float: left;
+            float: $indigo-inline-start;
             width: calc(100% - 28% - 40px);
-            margin: 0 40px 0 0;
+            margin: 0;
+            margin-#{$indigo-inline-end}: 40px;
         }
         @media only screen and (min-width: $big-screen) {
             width: calc(100% - 24% - 40px);
@@ -75,7 +80,7 @@
                         color: #292C2E;
                         width: auto;
                         top: 15px;
-                        left: 15px;
+                        #{$indigo-inline-start}: 15px;
                         .col {
                             display: inline-block;
                             vertical-align: top;
@@ -140,7 +145,7 @@
         padding: 20px 0 0;
         @include media-breakpoint-up(lg) {
             width: 28%;
-            float: left;
+            float: $indigo-inline-start;
             padding-top: 58px;
         }
         @media only screen and (min-width: $big-screen) {
@@ -155,7 +160,7 @@
             text-align: center;
             p {
                 margin: 0 0 10px;
-                text-align: left;
+                text-align: $indigo-inline-start;
                 font-size: 14px;
                 font-weight: 500;
             }
@@ -220,7 +225,7 @@
             width: 100%;
             overflow: hidden;
             .xseries {
-                float: right;
+                float: $indigo-inline-end;
                 width: 100%;
                 @include media-breakpoint-up(md) {
                     width: 32%;
@@ -233,7 +238,7 @@
                 }
             }
             h2.program-title {
-                float: left;
+                float: $indigo-inline-start;
                 width: 100%;
                 font-size: 24px;
                 font-weight: 700;
@@ -255,7 +260,7 @@
         .program-details-content {
             padding: 0;
             width: 100%;
-            float: left;
+            float: $indigo-inline-start;
             max-width: 100%;
             @include media-breakpoint-up(md) {
                 max-width: calc(100% - 32% - 40px);
@@ -283,7 +288,7 @@
                 .remaining-group, .in-progress-group, .completed-group {
                     margin: 0 0 15px;
                     h4, h5 {
-                        text-align: left;
+                        text-align: $indigo-inline-start;
                         font-size: 16px;
                         color: #111827;
                         font-weight: 600;
@@ -300,7 +305,7 @@
                     }
                     .program-course-card, .motivating-section {
                         border: 1px solid #F2F7F8;
-                        border-left: 8px solid #F2F7F8;
+                        border-#{$indigo-inline-start}: 8px solid #F2F7F8;
                         border-radius: 8px;
                         padding: 15px;
                         margin: 0 0 15px;
@@ -344,14 +349,15 @@
             }
         }
         .program-sidebar {
-            float: right;
+            float: $indigo-inline-end;
             margin: 0 !important;
             max-width: 100%;
             width: 100%;
             padding: 0;
             @include media-breakpoint-up(md) {
                 max-width: 32%;
-                margin: 0 0 0 40px !important;
+                margin: 0 !important;
+                margin-#{$indigo-inline-start}: 40px !important;
             }
             @include media-breakpoint-up(lg) {
                 max-width: 24%;
@@ -364,7 +370,7 @@
             border-radius: 6px;
             padding: 15px;
             margin: 0 0 20px;
-            text-align: left;
+            text-align: $indigo-inline-start;
             width: 100%;
             font-size: 12px;
             color: #515661;
@@ -375,7 +381,7 @@
                 display: none;
             }
             h2 {
-                text-align: left;
+                text-align: $indigo-inline-start;
                 font-size: 16px;
                 color: #111827;
                 font-weight: 600;
@@ -534,7 +540,7 @@
                         }
                         .program-course-card, .motivating-section {
                             border: 1px solid $primary-light-d;
-                            border-left: 8px solid $primary-light-d;
+                            border-#{$indigo-inline-start}: 8px solid $primary-light-d;
                             color: $text-color-d;
                             a.btn-brand, button.btn-brand {
                                 background: $primary-d;

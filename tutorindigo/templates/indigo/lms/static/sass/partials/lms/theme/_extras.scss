@@ -1,5 +1,10 @@
 /////////////////// General
 
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 $content_padding_top: 24px;
 $content-padding-bottom: 10px;
 $header-height: 75px;
@@ -151,7 +156,7 @@ header.global-header .nav-links .secondary .dropdown-user-menu {
     margin: 0 20px 30px 20px;
     // Fix right margin
     &:nth-child(4n), &:last-child {
-      margin-right: 20px;
+      margin-#{$indigo-inline-end}: 20px;
     }
   }
 }
@@ -252,14 +257,14 @@ nav.wrapper-preview-menu {
           float: none;
       }
       p {
-          text-align: right;
+          text-align: $indigo-inline-end;
       }
   }
 }
 .container, .main-container, .find-courses {
   max-width: 1600px;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-#{$indigo-inline-start}: 15px !important;
+  padding-#{$indigo-inline-end}: 15px !important;
   margin: 0 auto;
 }
 .window-wrap {
@@ -294,7 +299,7 @@ nav.wrapper-preview-menu {
       font-weight: 700;
       line-height: 34px;
       margin: 0 0 12px;
-      text-align: left;
+      text-align: $indigo-inline-start;
       color: $dark;
     }
     p {
@@ -333,10 +338,11 @@ nav.wrapper-preview-menu {
     border-bottom: 1px solid $gray-light;
     padding: 0;
     li {
-      margin: 0 32px 0 0;
+      margin: 0;
+      margin-#{$indigo-inline-end}: 32px;
 
       &.more {
-        margin-right: 0;
+        margin-#{$indigo-inline-end}: 0;
       }
 
       button {
@@ -444,12 +450,12 @@ body.view-instructordash {
   .instructor-dashboard-content-2 {
     padding: 0;
 
-    .wrap-instructor-info {
-      @include media-breakpoint-down(xs) {
-        display: block;
-        text-align: right;
+      .wrap-instructor-info {
+        @include media-breakpoint-down(xs) {
+          display: block;
+          text-align: $indigo-inline-end;
+        }
       }
-    }
 
     h2.instructor-dashboard-title {
       font-size: 24px;
@@ -478,7 +484,7 @@ body.view-instructordash {
         button {
           border: none !important;
           border-radius: 0 !important;
-          border-left: 1px solid $gray-light !important;
+          border-#{$indigo-inline-start}: 1px solid $gray-light !important;
           font-size: 14px;
           line-height: 20px;
           font-weight: 500;
@@ -552,7 +558,7 @@ body.view-instructordash {
     #course_info > .enrollment-wrapper {
       padding-top: 0 !important;
       .tip {
-        text-align: left;
+        text-align: $indigo-inline-start;
         font-size: 14px;
         font-weight: normal;
         color: $light-dark;
@@ -801,7 +807,7 @@ body.view-wiki{
         .timestamp {
           border: 1px solid $gray-light;
           border-radius: 8px;
-          border-left: 6px solid $primary-light;
+          border-#{$indigo-inline-start}: 6px solid $primary-light;
           padding: 15px;
           .label {
             font-weight: 500;
@@ -1018,7 +1024,7 @@ body.indigo-dark-theme {
           button {
             border: none !important;
             border-radius: 0 !important;
-            border-left: 1px solid $gray-light !important;
+            border-#{$indigo-inline-start}: 1px solid $gray-light !important;
             color: $text-color-primary;
             &.active-section {
               background: $primary-d !important;
@@ -1289,7 +1295,7 @@ body.indigo-dark-theme {
          }
          .timestamp {
            border: 1px solid $primary-light-d;
-           border-left: 6px solid $primary-light-d;
+           border-#{$indigo-inline-start}: 6px solid $primary-light-d;
            .label {
              color: $text-color-d;
            }
@@ -1460,7 +1466,7 @@ body.indigo-dark-theme {
         color: inherit !important;
       }
       .hint-caret {
-        border-right: 8px solid $primary-light-d;
+        border-#{$indigo-inline-end}: 8px solid $primary-light-d;
         border-top: 8px solid $primary-light-d;
       }
     }

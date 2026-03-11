@@ -1,4 +1,9 @@
 // Include custom about page
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 .course-info.about {
     &.container {
         padding-top: 50px;
@@ -40,7 +45,7 @@
                 margin: 0 0 8px;
                 line-height: 30px;
                 color: #111827;
-                text-align: left;
+                text-align: $indigo-inline-start;
             }
             .org {
                 display: block;
@@ -56,9 +61,10 @@
             max-width: 400px;
             width: 100%;
             @include media-breakpoint-up(md) {
-                float: right;
+                float: $indigo-inline-end;
                 width: 32%;
-                margin: 0 0 0 80px;
+                margin: 0;
+                margin-#{$indigo-inline-start}: 80px;
             }
             img {
                 display: block;
@@ -76,7 +82,7 @@
                 border: none;
                 &:after {
                     position: absolute;
-                    left: 1px;
+                    #{$indigo-inline-start}: 1px;
                     top: 1px;
                     width: calc(100% - 2px);
                     height: calc(100% - 2px);
@@ -108,7 +114,7 @@
               font-weight: 500;
               text-decoration: none !important;
               border: 1px solid #D1D5DB;
-              margin-right: 20px;
+              margin-#{$indigo-inline-end}: 20px;
               @include media-breakpoint-up(md) {
                   padding: 12px 24px;
               }
@@ -171,11 +177,11 @@
             width: 100%;
             @include media-breakpoint-up(md) {
                 width: calc(100% - 32% - 35px);
-                margin-right: 35px;
+                margin-#{$indigo-inline-end}: 35px;
             }
             @include media-breakpoint-up(lg) {
                 width: calc(100% - 32% - 57px);
-                margin-right: 57px;
+                margin-#{$indigo-inline-end}: 57px;
             }
             .wrap-instructor-info {
                 display: none;
@@ -185,7 +191,7 @@
                 color: #515661;
                 border-radius: 8px;
                 border: 1px solid $primary-light;
-                border-left: 14px solid $primary-light;
+                border-#{$indigo-inline-start}: 14px solid $primary-light;
                 padding: 24px 16px 10px 16px;
                 margin: 0 0 20px;
                 .responses {
@@ -230,7 +236,7 @@
                                 height: 100%;
                                 content: "";
                                 top: 0;
-                                left: 145px;
+                                #{$indigo-inline-start}: 145px;
                                 background: $primary-light;
                             }
                         }
@@ -238,16 +244,17 @@
                             overflow: hidden;
                         }
                         .teacher-image {
-                            text-align: left;
+                            text-align: $indigo-inline-start;
                             border: none;
                             height: auto;
                             margin: 0 0 5px;
                             float: none;
                             width: auto;
                             @include media-breakpoint-up(md) {
-                                margin: 0 30px 0 0;
+                                margin: 0;
+                                margin-#{$indigo-inline-end}: 30px;
                                 width: 130px;
-                                float: left;
+                                float: $indigo-inline-start;
                                 text-align: center;
                             }
                             img {
@@ -280,7 +287,7 @@
             width: 32%;
             margin: 0;
             max-width: 400px;
-            float: right;
+            float: $indigo-inline-end;
         }
         h2 {
             color:#111827;
@@ -293,13 +300,13 @@
             padding: 0;
             margin: 0;
             border: none;
-            text-align: left;
+            text-align: $indigo-inline-start;
             &:after {
                 display: none;
             }
             .social-sharing {
                 height: auto;
-                text-align: left;
+                text-align: $indigo-inline-start;
                 .sharing-message {
                     background: white;
                     border: none;
@@ -312,7 +319,7 @@
                     width: auto;
                     height: auto;
                     opacity: 1;
-                    margin-right: 10px;
+                    margin-#{$indigo-inline-end}: 10px;
                     vertical-align: top;
                 }
             }
@@ -329,7 +336,7 @@
                     position: absolute;
                     line-height: 24px;
                     font-size: 17px;
-                    left: 0;
+                    #{$indigo-inline-start}: 0;
                     top: 0;
                     margin: 0;
                     color: #9CA3AF;
@@ -343,12 +350,12 @@
                     color: #4B5563;
                     margin: 0 0 5px;
                     font-family: $font-family-title;
-                    float: left;
+                    float: $indigo-inline-start;
                     @include media-breakpoint-up(md) {
                         float: none;
                     }
                     @include media-breakpoint-up(lg) {
-                        float: left;
+                        float: $indigo-inline-start;
                     }
                 }
                 .important-dates-item-text {
@@ -359,12 +366,12 @@
                     display: block;
                     font-weight: normal;
                     font-family: $font-family-title;
-                    float: right;
+                    float: $indigo-inline-end;
                     @include media-breakpoint-up(md) {
                         float: none;
                     }
                     @include media-breakpoint-up(lg) {
-                        float: right;
+                        float: $indigo-inline-end;
                     }
                 }
             }
@@ -411,7 +418,7 @@ body.indigo-dark-theme {
                 .about, .prerequisites, .course-staff, .faq {
                     color: $text-color-d;
                     border: 1px solid $primary-light-d;
-                    border-left: 14px solid $primary-light-d;
+                    border-#{$indigo-inline-start}: 14px solid $primary-light-d;
                     h2 {
                         color: $text-color-d;
                     }

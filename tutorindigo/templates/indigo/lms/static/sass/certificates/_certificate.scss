@@ -1,4 +1,7 @@
 // Include custom cirtificate
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
 
 body.certificate {
     .wrapper-header {
@@ -27,7 +30,7 @@ body.certificate {
         padding: 0 15px !important;
         box-sizing: border-box;
         .header-app-title {
-            text-align: left;
+            text-align: $indigo-inline-start;
             a {
                 display: inline-block;
                 vertical-align: top;

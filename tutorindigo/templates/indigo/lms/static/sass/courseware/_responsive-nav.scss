@@ -3,6 +3,10 @@
  * This can be removed once the upstream fix is included in Open edX.
  */
 
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 .responsive-nav {
   white-space: nowrap;
   position: relative;
@@ -23,7 +27,7 @@
 .more-responsive-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  #{$indigo-inline-end}: 0;
   margin: 0;
   padding: 0;
   width: 250px;

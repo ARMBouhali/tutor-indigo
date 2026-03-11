@@ -1,4 +1,9 @@
 // Include custom header
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 body {
   .nav-skip {
 
@@ -48,7 +53,7 @@ header.global-header {
     .header-logo {
         margin: 0;
         a {
-            margin: 15px 0 15px 35px;
+            @include margin(15px, 0, 15px, 35px);
             height: auto;
             @include media-breakpoint-up(lg) {
                 margin: 0;
@@ -93,7 +98,7 @@ header.global-header {
     .nav-links {
         width: 100%;
         .main {
-            margin: 0 0 0 38px;
+            @include margin(0, 0, 0, 38px);
             .nav-tab {
                 a {
                     font-size: 14px;
@@ -101,7 +106,7 @@ header.global-header {
                     line-height: 22px;
                     padding: 20px 0;
                     color: $light-dark;
-                    margin: 0 16px 0 0;
+                    @include margin(0, 16px, 0, 0);
                     border-bottom: 2px solid transparent;
                     &.active, &:hover {
                         color: $dark;
@@ -124,7 +129,7 @@ header.global-header {
                 border-radius: 6px;
                 margin: 12px 0;
                 &:after {
-                    margin: 4px 0 0 4px;
+                    @include margin(4px, 0, 0, 4px);
                     border: 2px solid #15376D;
                     border-width: 2px 2px 0 0;
                     transform: rotate(135deg);
@@ -142,7 +147,7 @@ header.global-header {
             }
             .dropdown-user-menu {
                 position: absolute;
-                right: 0;
+                #{$indigo-inline-end}: 0;
                 top: 60px;
                 width: 224px;
                 border-radius: 6px;
@@ -174,7 +179,7 @@ header.global-header {
     .hamburger-menu {
         height: 17px;
         width: 20px;
-        left: 15px;
+        #{$indigo-inline-start}: 15px;
         top: 18px;
         background: none;
         border: 0;
@@ -194,7 +199,7 @@ header.global-header {
 }
 .mobile-menu {
     position: absolute;
-    left: 0;
+    #{$indigo-inline-start}: 0;
     top: 54px;
     z-index: 9999;
     margin: 0;
@@ -299,7 +304,7 @@ header.global-header .hamburger-menu + .header-logo a .logo-image,
                     content: "";
                     height: 20px;
                     width: 20px;
-                    left: 3px;
+                    #{$indigo-inline-start}: 3px;
                     bottom: 2px;
                     background-color: white;
                     transition: .4s;
@@ -316,6 +321,15 @@ header.global-header .hamburger-menu + .header-logo a .logo-image,
     }
 }
 
+.theme-toggle-button {
+    @include media-breakpoint-up(lg) {
+        @if $indigo-is-rtl {
+            margin-left: 1.5rem !important;
+            margin-right: 0 !important;
+        }
+    }
+}
+
 body.indigo-dark-theme {
     background: $body-bg-d !important;
     color: $text-color-d !important;
@@ -324,7 +338,7 @@ body.indigo-dark-theme {
     }
     .mobile-menu {
         position: absolute;
-        left: 0;
+        #{$indigo-inline-start}: 0;
         top: 54px;
         z-index: 9999;
         margin: 0;

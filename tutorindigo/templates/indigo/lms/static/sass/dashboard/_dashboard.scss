@@ -1,4 +1,9 @@
 // Include custom dashborad
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 .window-wrap #content.content-wrapper {
     padding: 0 !important;
     margin: 0 !important;
@@ -16,11 +21,12 @@
         padding: 0;
         li.status-verification.warning {
             border: none !important;
-            padding: 0 0 0 32px;
+            padding: 0;
+            padding-#{$indigo-inline-start}: 32px;
             position: relative;
             svg {
                 position: absolute;
-                left: 0;
+                #{$indigo-inline-start}: 0;
                 top: 0;
             }
             .status-title {
@@ -157,10 +163,10 @@
             display: block;
         }
         .button-holder {
-            float: right;
+            float: $indigo-inline-end;
             button {
                 position: static;
-                margin: 0 0 0 16px;
+                margin-#{$indigo-inline-start}: 16px;
                 min-width: 90px;
                 color: #fff;
                 font-size: 16px;
@@ -185,11 +191,12 @@
             overflow: hidden;
             border-radius: 6px;
             background: $primary-light;
-            padding: 0 0 0 33px;
+            padding: 0;
+            padding-#{$indigo-inline-start}: 33px;
             position: relative;
             svg {
                 position: absolute;
-                left: 12px;
+                #{$indigo-inline-start}: 12px;
                 font-size: 20px;
                 top: 10px;
             }
@@ -233,7 +240,7 @@
                         }
                         .wrapper-course-actions {
                             position: absolute;
-                            right: 5px;
+                            #{$indigo-inline-end}: 5px;
                             top: 5px;
                             .action.action-more {
                                 width: 30px;
@@ -246,7 +253,7 @@
                             }
                             .actions-dropdown {
                                 top: 29px;
-                                right: 0;
+                                #{$indigo-inline-end}: 0;
                                 min-width: 10px;
                                 .actions-dropdown-list {
                                     box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);

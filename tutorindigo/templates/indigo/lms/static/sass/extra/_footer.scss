@@ -1,4 +1,8 @@
 // Include custom Footer
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+
 .wrapper-footer {
     padding: 25px 0;
     border-top: 1px solid $gray-light;
@@ -13,7 +17,7 @@ footer.tutor-container {
     text-align: center;
     box-sizing: border-box;
     @include media-breakpoint-up(lg) {
-        text-align: left;
+        text-align: $indigo-inline-start;
     }
     .footer-top {
         margin: 0 0 15px;
@@ -28,7 +32,7 @@ footer.tutor-container {
                 margin: 0 0 15px;
             }
             @include media-breakpoint-up(lg) {
-                float: left;
+                float: $indigo-inline-start;
             }
         }
     }
@@ -51,13 +55,13 @@ footer.tutor-container {
             line-height: 18px;
             color: #515661;
             &:first-child {
-                padding-left: 0;
+                padding-#{$indigo-inline-start}: 0;
             }
             &:last-child {
-                padding-left: 20px;
+                padding-#{$indigo-inline-start}: 20px;
                 &:after {
                     position: absolute;
-                    left: 5px;
+                    #{$indigo-inline-start}: 5px;
                     top: 50%;
                     content: "";
                     width: 1px;

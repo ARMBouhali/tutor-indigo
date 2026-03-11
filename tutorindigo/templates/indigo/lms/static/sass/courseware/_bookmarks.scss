@@ -1,4 +1,9 @@
 // Include custom bookmarks
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 .navbar.course-tabs {
     display: block;
     max-width: 1600px;
@@ -9,9 +14,9 @@
     ul.navbar-nav {
         border-bottom: 1px solid $primary-light;
         .nav-item {
-            margin-right: 10px;
+            margin-#{$indigo-inline-end}: 10px;
             @include media-breakpoint-up(md) {
-                margin-right: 32px;
+                margin-#{$indigo-inline-end}: 32px;
             }
             a {
                 border-width: 0 0 2px;
@@ -71,7 +76,7 @@
             font-size: 14px;
         }
         .paging-header, .bookmarks-results-list, .paging-footer {
-            margin-left: 0;
+            margin-#{$indigo-inline-start}: 0;
             max-width: 856px;
         }
     }
@@ -80,14 +85,14 @@
     .bookmarks-results-list {
         a.bookmarks-results-list-item {
             border: 1px solid $gray-light;
-            border-left: 8px solid $primary-light;
+            border-#{$indigo-inline-start}: 8px solid $primary-light;
             padding: 20px 30px;
             border-radius: 8px;
             position: relative;
             &:before {
                 position: absolute;
                 top: -1px;
-                left: 5px;
+                #{$indigo-inline-start}: 5px;
                 font-size: 17px;
                 line-height: 17px;
                 color: $primary-d;
@@ -216,7 +221,7 @@ body.indigo-dark-theme {
         .bookmarks-results-list {
             a.bookmarks-results-list-item {
                 border: 1px solid $primary-light-d;
-                border-left: 8px solid $primary-light-d;
+                border-#{$indigo-inline-start}: 8px solid $primary-light-d;
                 h3 {
                     color: $text-color-d !important;
                     .icon {

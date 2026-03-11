@@ -1,4 +1,9 @@
 // Include custom discover
+$indigo-layout-direction: if(variable-exists(default-layout-direction), $default-layout-direction, LTR);
+$indigo-is-rtl: $indigo-layout-direction == RTL;
+$indigo-inline-start: if($indigo-is-rtl, right, left);
+$indigo-inline-end: if($indigo-is-rtl, left, right);
+
 .window-wrap #content.content-wrapper {
     padding: 0 !important;
     margin: 0 !important;
@@ -210,10 +215,10 @@
                     content: "";
                 }
                 .button-holder {
-                    float: right;
+                    float: $indigo-inline-end;
                     button {
                         position: static;
-                        margin: 0 0 0 16px;
+                        margin-#{$indigo-inline-start}: 16px;
                         min-width: 90px;
                         color: #fff;
                         font-size: 16px;
@@ -240,11 +245,12 @@
                     flex-grow: 1;
                     border-radius: 6px;
                     background: $primary-light;
-                    padding: 0 0 0 33px;
+                    padding: 0;
+                    padding-#{$indigo-inline-start}: 33px;
                     position: relative;
                     svg {
                         position: absolute;
-                        left: 12px;
+                        #{$indigo-inline-start}: 12px;
                         font-size: 20px;
                         top: 10px;
 
@@ -300,7 +306,8 @@
         text-decoration: none !important;
         font-size: 14px;
         line-height: 20px;
-        margin: 0 16px 0 0;
+        margin: 0;
+        margin-#{$indigo-inline-end}: 16px;
         font-weight: 500;
         padding: 8px 10px;
         border-radius: 6px;
@@ -324,7 +331,7 @@
     .dropdown-menu {
         display: none;
         width: 200px;
-        left: 0;
+        #{$indigo-inline-start}: 0;
         top: 48px !important;
         transform: none !important;
         border-radius: 6px;
@@ -351,7 +358,8 @@
                 font-weight: 700;
             }
             ul.facet-list {
-                padding: 0 0 0 25px;
+                padding: 0;
+                padding-#{$indigo-inline-start}: 25px;
                 max-height: 100px;
                 overflow-y: auto;
                 li {
@@ -362,7 +370,8 @@
                         float: none;
                         width: auto;
                         background: none !important;
-                        padding: 0 0 0 24px;
+                        padding: 0;
+                        padding-#{$indigo-inline-start}: 24px;
                         font-size: 14px;
                         line-height: 20px;
                         color: #191B23;
@@ -374,7 +383,7 @@
                                     content: "\f00c";
                                     width: auto;
                                     top: 0;
-                                    left: 2px;
+                                    #{$indigo-inline-start}: 2px;
                                     display: block;
                                     font-size: 10px;
                                     line-height: 14px;
@@ -384,8 +393,8 @@
                         }
                         .count {
                             position: absolute;
-                            left: 0;
-                            right: auto;
+                            #{$indigo-inline-start}: 0;
+                            #{$indigo-inline-end}: auto;
                             top: 2px;
                             width: 16px;
                             height: 16px;
