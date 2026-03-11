@@ -13,7 +13,7 @@ const IndigoFooter = () => {
     },
     "footer.copyright.text": {
       id: "footer.copyright.text",
-      defaultMessage: `Copyrights ©${new Date().getFullYear()}. All Rights Reserved.`,
+      defaultMessage: `Copyright ©${new Date().getFullYear()}. All rights reserved.`,
       description: "copyright text for the footer",
     },
   };

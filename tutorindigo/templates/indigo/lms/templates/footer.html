@@ -48,7 +48,7 @@
     </nav>
     {% endif %}
   </div>
-  <span class="copyright-site">Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
+  <span class="copyright-site">${_("Copyright ©{year}. All rights reserved.").format(year=datetime.now().year)}</span>
   % endif
     <div class="colophon">
 
@@ -106,7 +106,7 @@
       </nav>
       {% endif %}
     </div>
-    <span class="copyright-site">Copyrights ©${datetime.now().year}. All Rights Reserved.</span>
+    <span class="copyright-site">${_("Copyright ©{year}. All rights reserved.").format(year=datetime.now().year)}</span>
     % endif
       <div class="colophon">
 
