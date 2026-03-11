@@ -322,6 +322,78 @@ nav.wrapper-preview-menu {
          }
       }
     }
+    .about-brand-mark {
+      margin: 0 0 24px;
+      text-align: center;
+
+      img {
+        display: inline-block;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+    }
+    .about-section {
+      margin: 0 0 24px;
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        line-height: 28px;
+        color: $dark;
+      }
+    }
+    .about-list {
+      margin: 0;
+      padding: 0 24px 0 0;
+
+      li {
+        margin: 0 0 8px;
+      }
+    }
+    .about-team {
+      margin-top: 40px;
+
+      h2 {
+        margin: 0 0 20px;
+        font-size: 24px;
+        line-height: 32px;
+        color: $dark;
+      }
+    }
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .about-team-card {
+      border: 1px solid $gray-light;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+    }
+    .about-team-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: $primary-light;
+    }
+    .about-team-body {
+      padding: 16px;
+
+      h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+        line-height: 24px;
+        color: $dark;
+      }
+
+      p {
+        margin: 0;
+        color: $light-dark;
+      }
+    }
   }
 }
 .wrapper-course-material[aria-label="Course Material"] {
@@ -398,6 +470,21 @@ body.view-student-notes {
           display: block;
         }
       }
+    }
+    .about-section h2,
+    .about-team h2,
+    .about-team-body h3 {
+      color: $text-color-d;
+    }
+    .about-team-card {
+      border-color: $primary-light-d;
+      background: $primary-light-d;
+    }
+    .about-team-photo {
+      background: $body-bg-d;
+    }
+    .about-team-body p {
+      color: $text-color-primary;
     }
   }
 

@@ -10,13 +10,106 @@
         <h1>
             <%block name="pageheader">${page_header or _("About")}</%block>
         </h1>
-        <p>
-            <%block name="pagecontent">${page_content or _("This page left intentionally blank. Feel free to add your own content.")}</%block>
-        </p>
-        <!-- NEW IN INDIGO: add graphic image -->
-        <div class="graphic-img">
-            <img src="${static.url('images/about.svg')}" alt="${_('About illustration')}" />
-            <img class="dark" src="${static.url('images/about-dark.svg')}" alt="${_('About illustration')}" />
+        <div class="about-brand-mark">
+            <img src="${static.url('images/about/logo-with-text-300.png')}" alt="شعار أكاديمية جيل الترجيح" />
         </div>
+
+        <section class="about-section">
+            <h2>رسالة الأكاديمية</h2>
+            <p>المساهمة في إعداد جيل قيادي ذي كفاءة واقتدار يقود المجتمع الجزائري للنهضة الحضارية الشاملة ويساهم في نهضة الأمة.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>رؤية الأكاديمية</h2>
+            <p>اثنا عشر ألف قائد مثقف، رباني، ماهر وفعّال يشرفون على مائة وعشرين مؤسسة مدنية فاعلة عامة، ومتخصصة لخدمة النهضة الإسلامية، ويقودون تيارا واسعا من الشباب.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>العلوم والمعارف</h2>
+            <p>يتم من خلال هذا المحور متابعة التحصيل العلمي للأفراد عن طريق منهجية التعليم بالانتساب التي تعتمدها كثير من الكليات والمعاهد العلمية (التعليم عن بعد) باستعمال وسائل الاتصال العصرية (e-learning) بحيث يعطى المشارك البرنامج ويمكن من المادة التعليمية ويمتحن عليها بشكل دوري ويمنح الناجحون جوائز تحفيزية.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>السلوك</h2>
+            <p>محور السلوك هو المرتكز الذي يبنى عليه جانب الربانية والاستقامة في شخصية شباب الأكاديمية، ويتم ذلك من خلال التذكير المستمر في كل المناسبات بالأهداف الإيمانية والأخلاقية للأكاديمية وبإشاعة النصيحة والأمر بالمعروف والنهي عن المنكر وتحقيق معنى القدوة في كل المستويات.</p>
+            <p>وكل هذه التدابير أعمال دائمة في بيئة الأكاديمية، وتعتبر الدورة التربوية الفضاء الأساسي الذي يتم فيه توجيه الأفراد كما أن استمارة السلوك هي الأداة الأساسية لمتابعة أمارات الصلاح لدى الأفراد.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>المهارات</h2>
+            <p>وهو المحور الذي يتضمن البرامج والمشاريع التي يتدرب من خلالها الشباب على المهارات القيادية التي تساعد على النجاح وقيادة المشاريع: التخطيط الاستراتيجي، قيادة فرق العمل، التأثير والإقناع، التواصل الفعال ...</p>
+        </section>
+
+        <section class="about-section">
+            <h2>الفاعلية</h2>
+            <p>وهو المحور الذي يتضمن منظومة كبيرة من المشاريع التي تحفز وتحرك الشباب وتنقلهم من دائرة التربية والتعليم والتدريب إلى دائرة الفعل والانجاز من خلال ثلاث نظريات:</p>
+            <ul class="about-list">
+                <li>نظرية التعميم والتركيز.</li>
+                <li>نظرية القيادة العامة والقيادة الخاصة.</li>
+                <li>نظرية التشبيك.</li>
+            </ul>
+        </section>
+
+        <%
+          staff = [
+            {
+              "image": "marouane-benguettaia.jpg",
+              "name": "محمد مروان بن قطاية",
+              "title": "رئيس المكتب التنفيذي الوطني",
+            },
+            {
+              "image": "ibrahim-elkhalil-chetioui.jpg",
+              "name": "إبراهيم الخليل بن شتيوي",
+              "title": "مسؤول قسم العلوم والمعارف",
+            },
+            {
+              "image": "",
+              "name": "صبرينة العيدودي",
+              "title": "مسؤول قسم السلوك",
+            },
+            {
+              "image": "abdelhamid-naamoune.jpg",
+              "name": "عبد الحميد نعمون",
+              "title": "مسؤول قسم المهارات",
+            },
+            {
+              "image": "oussama-cherif.jpg",
+              "name": "أسامة شريف",
+              "title": "مسؤول قسم الفاعلية",
+            },
+            {
+              "image": "aymen-djermane.jpg",
+              "name": "أيمن جرمان",
+              "title": "مسؤول قسم المنسقين",
+            },
+            {
+              "image": "mounira-lahouassa.jpg",
+              "name": "منيرة لهواسة",
+              "title": "مسؤول قسم الإعلام",
+            },
+            {
+              "image": "nouh-bendekkiche.jpg",
+              "name": "نوح بن دقيش",
+              "title": "مسؤول قسم العلاقات",
+            },
+          ]
+        %>
+
+        <section class="about-team">
+            <h2>تعرف على الفريق القيادي</h2>
+            <div class="about-team-grid">
+                % for member in staff:
+                    <article class="about-team-card">
+                        % if member.get('image'):
+                            <img src="${static.url('images/about/staff/' + member['image'])}" alt="${member['name']}" class="about-team-photo" />
+                        % endif
+                        <div class="about-team-body">
+                            <h3>${member['name']}</h3>
+                            <p>${member['title']}</p>
+                        </div>
+                    </article>
+                % endfor
+            </div>
+        </section>
     </section>
 </main>

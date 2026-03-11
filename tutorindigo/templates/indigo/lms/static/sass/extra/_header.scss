@@ -46,18 +46,20 @@ header.global-header {
         height: 50px;
 
         @include media-breakpoint-up(lg) {
-            display: unset;
-            height: auto;
+            height: 72px;
         }
     }
     .header-logo {
         margin: 0;
+        display: flex;
+        align-items: center;
         a {
             @include margin(15px, 0, 15px, 35px);
             height: auto;
+            display: flex;
+            align-items: center;
             @include media-breakpoint-up(lg) {
                 margin: 0;
-                margin: 20px 0 0;
             }
             .logo {
                 height: 3rem;
@@ -97,14 +99,33 @@ header.global-header {
     }
     .nav-links {
         width: 100%;
+        @include media-breakpoint-up(lg) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 72px;
+        }
         .main {
             @include margin(0, 0, 0, 38px);
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                align-items: center;
+                min-height: 72px;
+            }
             .nav-tab {
+                @include media-breakpoint-up(lg) {
+                    display: flex;
+                    align-items: center;
+                    min-height: 72px;
+                }
                 a {
+                    display: flex;
+                    align-items: center;
                     font-size: 14px;
                     font-weight: 500;
                     line-height: 22px;
-                    padding: 20px 0;
+                    min-height: 72px;
+                    padding: 0;
                     color: $light-dark;
                     @include margin(0, 16px, 0, 0);
                     border-bottom: 2px solid transparent;
@@ -118,8 +139,12 @@ header.global-header {
         .secondary {
             margin: 0;
             position: relative;
+            display: flex;
+            align-items: center;
             justify-content: end;
             .toggle-user-dropdown {
+                display: flex;
+                align-items: center;
                 padding: 9px 15px;
                 background: $primary-light;
                 color: $primary;
@@ -127,7 +152,7 @@ header.global-header {
                 font-weight: 500;
                 line-height: 20px;
                 border-radius: 6px;
-                margin: 12px 0;
+                margin: 0;
                 &:after {
                     @include margin(4px, 0, 0, 4px);
                     border: 2px solid #15376D;
