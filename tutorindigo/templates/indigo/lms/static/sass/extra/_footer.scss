@@ -37,6 +37,10 @@ footer.tutor-container {
         margin: 0;
         padding: 0;
         letter-spacing: -.3em;
+        img {
+            max-height: 150px;
+            width: auto;
+        }
         li {
             display: inline-block;
             vertical-align: middle;

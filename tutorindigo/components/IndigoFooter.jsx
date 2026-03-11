@@ -6,16 +6,6 @@ const IndigoFooter = () => {
   const indigoFooterNavLinks = config.INDIGO_FOOTER_NAV_LINKS || [];
 
   const messages = {
-    "footer.poweredby.text": {
-      id: "footer.poweredby.text",
-      defaultMessage: "Powered by",
-      description: "text for the footer",
-    },
-    "footer.tutorlogo.altText": {
-      id: "footer.tutorlogo.altText",
-      defaultMessage: "Runs on Tutor",
-      description: "alt text for the footer tutor logo",
-    },
     "footer.logo.altText": {
       id: "footer.logo.altText",
       defaultMessage: "Powered by Open edX",
@@ -34,22 +24,6 @@ const IndigoFooter = () => {
         <div className="footer-top">
           <div className="powered-area">
             <ul className="logo-list">
-              <li>{intl.formatMessage(messages["footer.poweredby.text"])}</li>
-              <li>
-                <a
-                  href="https://edly.io/tutor/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <img
-                    src={`${config.LMS_BASE_URL}/theming/asset/images/tutor-logo.png`}
-                    alt={intl.formatMessage(
-                      messages["footer.tutorlogo.altText"]
-                    )}
-                    width="57"
-                  />
-                </a>
-              </li>
               <li>
                 <a href="https://open.edx.org" rel="noreferrer" target="_blank">
                   <img

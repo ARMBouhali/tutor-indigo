@@ -1,3 +1,118 @@
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.woff2') format('woff2'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.woff') format('woff'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.woff2') format('woff2'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.woff') format('woff'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff2') format('woff2'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff') format('woff'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff2') format('woff2'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff') format('woff'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff2') format('woff2'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.woff') format('woff'),
+    url('#{$static-path}/fonts/ProductSans/ProductSans-Medium.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.woff2') format('woff2'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.woff') format('woff'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+00A9, U+00AE, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.woff2') format('woff2'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.woff') format('woff'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisiaLt.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+00A9, U+00AE, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff2') format('woff2'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff') format('woff'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+00A9, U+00AE, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff2') format('woff2'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff') format('woff'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+00A9, U+00AE, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  src:
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff2') format('woff2'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.woff') format('woff'),
+    url('#{$static-path}/fonts/HacenTunisia/HacenTunisia.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+00A9, U+00AE, U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFC;
+}
+
 ///////// Serif
 @font-face {
   font-family: 'Crimson';

@@ -55,8 +55,12 @@ header.global-header {
                 margin: 20px 0 0;
             }
             .logo {
-                height: 24px;
+                height: 3rem;
                 margin: 0;
+                padding: 0;
+                top: 0;
+                display: flex;
+                align-items: center;
 
                 body.indigo-dark-theme & {
                     display: none;
@@ -64,9 +68,21 @@ header.global-header {
             }
             .logo-white {
                 display: none;
+                height: 3rem;
+                margin: 0;
+                padding: 0;
+                top: 0;
+                align-items: center;
 
                 body.indigo-dark-theme & {
-                    display: inline-block;
+                    display: flex;
+                }
+            }
+            .logo,
+            .logo-white {
+                img,
+                &.logo-image {
+                    height: 100%;
                 }
             }
         }
@@ -200,6 +216,12 @@ header.global-header {
         }
     }
 }
+
+header.global-header .hamburger-menu + .header-logo a .logo-image,
+.mobile-menu .header-logo a .logo-image {
+    height: 2rem;
+}
+
 .header-container {
     margin: 0 auto;
     padding: 0 15px;
