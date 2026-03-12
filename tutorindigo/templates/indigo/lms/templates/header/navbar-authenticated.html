@@ -30,26 +30,44 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
   <div class="main">
     % if show_dashboard_tabs:
       <div class="mobile-nav-item hidden-mobile nav-item nav-tab">
-        <a class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link" href="${reverse('dashboard')}"
-             aria-current="${'page' if reverse('dashboard') == request.path else 'false'}">
-             ${_("Courses")}
+        <a
+          class="${'active ' if reverse('dashboard') == request.path else ''}tab-nav-link"
+          href="${reverse('dashboard')}"
+          aria-current="${'page' if reverse('dashboard') == request.path else 'false'}"
+        >
+          ${_("Discover New")}
         </a>
       </div>
       % if show_program_listing:
         <div class="mobile-nav-item hidden-mobile nav-item nav-tab">
-          <a class="${'active ' if reverse('program_listing_view') in request.path else ''}tab-nav-link" href="${reverse('program_listing_view')}"
-             aria-current="${'page' if reverse('program_listing_view') == request.path else 'false'}">
-             ${_("Programs")}
+          <a
+            class="${'active ' if reverse('program_listing_view') in request.path else ''}tab-nav-link"
+            href="${reverse('program_listing_view')}"
+            aria-current="${'page' if reverse('program_listing_view') == request.path else 'false'}"
+          >
+            ${_("Programs")}
           </a>
         </div>
       % endif
     % endif
     % if show_explore_courses:
       <div class="mobile-nav-item hidden-mobile nav-item nav-tab">
-          <a class="${'active ' if reverse('courses') == request.path else ''}tab-nav-link discover-new-link" href="${marketing_link('COURSES')}"
-             aria-current="${'page' if '/courses' in request.path else 'false'}">
-             ${_("Discover New")}
-          </a>
+        <a
+          class="${'active ' if reverse('courses') == request.path else ''}tab-nav-link discover-new-link"
+          href="${marketing_link('COURSES')}"
+          aria-current="${'page' if '/courses' in request.path else 'false'}"
+        >
+          ${_("Discover New")}
+        </a>
+      </div>
+      <div class="mobile-nav-item hidden-mobile nav-item nav-tab">
+        <a
+          class="${'active ' if request.path == '/about' else ''}tab-nav-link"
+          href="/about"
+          aria-current="${'page' if request.path == '/about' else 'false'}"
+        >
+          ${_("About")}
+        </a>
       </div>
     % endif
   </div>

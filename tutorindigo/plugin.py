@@ -64,6 +64,12 @@ hooks.Filters.ENV_PATTERNS_INCLUDE.add_items(
     ]
 )
 
+# Tutor renders files from template roots as UTF-8 text. Skip compiled gettext
+# catalogs here; they must be generated after render/copy.
+hooks.Filters.ENV_PATTERNS_IGNORE.add_item(
+    r"indigo/conf/locale/.*/LC_MESSAGES/.*\.mo$"
+)
+
 
 # init script: set theme automatically
 with open(
@@ -139,6 +145,15 @@ hooks.Filters.ENV_PATCHES.add_item(
 
 hooks.Filters.ENV_PATCHES.add_items(
     [
+        (
+            "openedx-common-settings",
+            """
+INDIGO_THEME_LOCALE_PATH = "/openedx/themes/indigo/conf/locale"
+if INDIGO_THEME_LOCALE_PATH in LOCALE_PATHS:
+    LOCALE_PATHS.remove(INDIGO_THEME_LOCALE_PATH)
+LOCALE_PATHS.insert(0, INDIGO_THEME_LOCALE_PATH)
+""",
+        ),
         # for production
         (
             "openedx-common-assets-settings",
@@ -149,6 +164,15 @@ dark_theme_filepath = ['indigo/js/dark-theme.js']
 for filename in javascript_files:
     if filename in PIPELINE['JAVASCRIPT']:
         PIPELINE['JAVASCRIPT'][filename]['source_filenames'] += dark_theme_filepath
+""",
+        ),
+        (
+            "openedx-dockerfile",
+            """
+RUN if [ -f /openedx/themes/indigo/conf/locale/ar/LC_MESSAGES/django.po ]; then \
+    msgfmt /openedx/themes/indigo/conf/locale/ar/LC_MESSAGES/django.po \
+      -o /openedx/themes/indigo/conf/locale/ar/LC_MESSAGES/django.mo; \
+fi
 """,
         ),
         # for development

@@ -3,6 +3,7 @@ $indigo-layout-direction: if(variable-exists(default-layout-direction), $default
 $indigo-is-rtl: $indigo-layout-direction == RTL;
 $indigo-inline-start: if($indigo-is-rtl, right, left);
 $indigo-inline-end: if($indigo-is-rtl, left, right);
+$indigo-flex-inline-end: if($indigo-is-rtl, flex-start, flex-end);
 
 body {
   .nav-skip {
@@ -43,22 +44,29 @@ header.global-header {
     .main-header {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         height: 50px;
 
         @include media-breakpoint-up(lg) {
             height: 72px;
+            justify-content: flex-start;
         }
     }
     .header-logo {
         margin: 0;
         display: flex;
         align-items: center;
+        flex: 1 1 auto;
+        justify-content: $indigo-flex-inline-end;
         a {
             @include margin(15px, 0, 15px, 35px);
             height: auto;
             display: flex;
             align-items: center;
             @include media-breakpoint-up(lg) {
+                margin: 0;
+            }
+            @include media-breakpoint-down(md) {
                 margin: 0;
             }
             .logo {
@@ -145,56 +153,95 @@ header.global-header {
             .toggle-user-dropdown {
                 display: flex;
                 align-items: center;
-                padding: 9px 15px;
-                background: $primary-light;
+                padding: 8px 14px 8px 8px;
                 color: $primary;
                 font-size: 14px;
                 font-weight: 500;
                 line-height: 20px;
-                border-radius: 6px;
+                border: 1px solid rgba(21, 55, 109, 0.18);
+                border-radius: 999px;
+                box-shadow: none;
                 margin: 0;
+                transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+                .user-avatar-wrap {
+                    flex: 0 0 auto;
+                    width: 24px;
+                    height: 24px;
+                    margin-#{$indigo-inline-end}: 8px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    background: $primary-light;
+                }
+                .user-avatar {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
                 &:after {
-                    @include margin(4px, 0, 0, 4px);
-                    border: 2px solid #15376D;
+                    @include margin(0, 0, 0, 8px);
+                    border: 2px solid currentColor;
                     border-width: 2px 2px 0 0;
                     transform: rotate(135deg);
                     content: "";
                     height: 5px;
-                    position: relative;
-                    top: 2px;
                     width: 5px;
                     display: inline-block;
-                    vertical-align: top;
+                    flex: 0 0 auto;
+                }
+                &:hover,
+                &:focus {
+                    background: rgba(21, 55, 109, 0.06);
+                    border-color: rgba(21, 55, 109, 0.28);
+                    color: $dark;
                 }
                 .username {
-                    font: -webkit-control;
+                    display: block;
+                    max-width: 160px;
+                    padding-#{$indigo-inline-end}: 6px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 500;
                 }
             }
             .dropdown-user-menu {
                 position: absolute;
                 #{$indigo-inline-end}: 0;
-                top: 60px;
-                width: 224px;
-                border-radius: 6px;
-                box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.05), 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
-                border: none;
+                top: calc(100% + 8px);
+                width: 240px;
+                padding: 8px 0;
+                background: $white;
+                border-radius: 5px;
+                box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.08);
+                border: 1px solid rgba(15, 23, 42, 0.08);
                 overflow: hidden;
                 .dropdown-item {
                     border: none !important;
+                    margin: 0;
+                    padding: 0;
                     &.hide-desktop {
                         @include media-breakpoint-up(lg) {
                             display: none;
                         }
                     }
                     a {
+                        display: flex;
+                        align-items: center;
                         box-sizing: border-box;
-                        padding: 10px;
+                        min-height: 40px;
+                        padding: 8px 16px;
                         font-size: 14px;
+                        font-weight: 500;
                         line-height: 20px;
-                        color: $light-dark;
+                        color: $dark;
+                        text-decoration: none;
+                        transition: background-color .2s ease, color .2s ease;
                         &:hover {
-                            background: $primary-light;
-                            color: $dark;                         ;
+                            background: rgba(21, 55, 109, 0.06);
+                            color: $primary;
                         }
                     }
                 }
@@ -204,12 +251,13 @@ header.global-header {
     .hamburger-menu {
         height: 17px;
         width: 20px;
-        #{$indigo-inline-start}: 15px;
+        #{$indigo-inline-end}: 15px;
         top: 18px;
         background: none;
         border: 0;
         padding: 0;
         box-shadow: none;
+        flex: 0 0 auto;
 
         .line {
             height: 2px;
@@ -231,14 +279,17 @@ header.global-header {
     border: none;
     border-bottom: 2px solid $primary;
     width: 100%;
+    text-align: $indigo-inline-start;
     .mobile-nav-link {
         a {
+            display: block;
             font-weight: normal;
             padding: 16px;
             font-size: 14px;
             line-height: 20px;
             color: $light-dark;
             border: none;
+            text-align: $indigo-inline-start;
             &:hover, &.active {
                 background: $primary-light;
                 color: $dark;
@@ -370,10 +421,13 @@ body.indigo-dark-theme {
         border: none;
         border-bottom: 2px solid $primary;
         width: 100%;
+        text-align: $indigo-inline-start;
         .mobile-nav-link {
             a {
+                display: block;
                 background: #454545;
                 color: $text-color-d;
+                text-align: $indigo-inline-start;
                 &:hover, &.active {
                     background: #323232;
                     color: $text-color-d;
@@ -398,22 +452,33 @@ body.indigo-dark-theme {
             }
             .secondary {
                 .toggle-user-dropdown {
-                    background: $primary-d;
+                    background: transparent;
                     color: $btn-color-d;
+                    border-color: rgba(255, 255, 255, 0.28);
+                    .user-avatar-wrap {
+                        background: rgba(255, 255, 255, 0.12);
+                    }
                     &:after {
                         border-color: $btn-color-d;
+                    }
+                    &:hover,
+                    &:focus {
+                        background: rgba(255, 255, 255, 0.08);
+                        border-color: rgba(255, 255, 255, 0.4);
+                        color: $text-color-d;
                     }
                 }
                 .dropdown-user-menu {
                     background: $light-overlay-d;
-                    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.8), 0px 4px 6px -2px rgba(255, 255, 255, 0.05), 0px 10px 15px -3px rgba(255, 255, 255, 0.1);
+                    border-color: rgba(255, 255, 255, 0.15);
+                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
                     .dropdown-item {
                         a {
-                            color: $text-color-primary;
+                            color: $text-color-d;
                             background: none;
                             &:hover {
-                                background: $body-bg-d;
-                                color: $text-color-d;                         ;
+                                background: rgba(255, 255, 255, 0.08);
+                                color: $text-color-d;
                             }
                         }
                     }

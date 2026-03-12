@@ -218,6 +218,10 @@ nav.wrapper-preview-menu {
 .view-profile .profile-self .wrapper-profile-field-account-privacy {
   margin-top: -$content-padding-top;
 }
+
+body.view-logout #content.content-wrapper {
+  padding-top: 32px;
+}
 .view-profile .wrapper-profile {
   background-color: #fff;
 }
