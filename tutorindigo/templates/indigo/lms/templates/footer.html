@@ -1,6 +1,7 @@
 ## mako
 <%page expression_filter="h"/>
 <%!
+  from datetime import datetime
   from django.utils.translation import gettext as _
   from lms.djangoapps.branding.api import get_footer
   from openedx.core.djangoapps.lang_pref.api import footer_language_selector_is_enabled
@@ -20,7 +21,7 @@
     % endif
   >
   <div class="footer-top">
-    <div class="powered-area">
+    <div class="powered-area" style="float: none; margin: 0 auto;">
       ## Please leave this link and use one of the logos provided
       ## The OpenEdX link may be hidden when this view is served
       ## through an API to partner sites (such as marketing sites or blogs),
@@ -34,17 +35,19 @@
         </li>
       </ul>
     </div>
-    {% if INDIGO_FOOTER_NAV_LINKS %}
     <nav class="nav-colophon" aria-label="${_('About')}">
       <ol>
-          {% for link in INDIGO_FOOTER_NAV_LINKS %}
-          <li>
-            <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-          </li>
-          {% endfor %}
+        <li>
+          <a href="/">${_('Home')}</a>
+        </li>
+        <li>
+          <a href="/courses">${_('Courses')}</a>
+        </li>
+        <li>
+          <a href="/about">${_('About')}</a>
+        </li>
       </ol>
     </nav>
-    {% endif %}
   </div>
   % endif
     <div class="colophon">
@@ -54,14 +57,7 @@
       % endif
 
       ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-        <p class="copyright">${footer['copyright']}
-            % if icp_license_info.get('icp_license'):
-              ${u" | {text}".format(text=icp_license_info.get('text'))}
-              <a href="${icp_license_info.get('icp_license_link', '#')}">
-                  ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-              </a>
-            % endif
-        </p>
+        <p class="copyright">© 2009–${datetime.now().year} أكاديمية جيل الترجيح. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
 </div>
@@ -77,12 +73,12 @@
       % endif
     >
     <div class="footer-top">
-      <div class="powered-area">
-        ## Please leave this link and use one of the logos provided
-        ## The OpenEdX link may be hidden when this view is served
-        ## through an API to partner sites (such as marketing sites or blogs),
-        ## which are not technically powered by OpenEdX.
-        % if not hide_openedx_link:
+    <div class="powered-area" style="float: none; margin: 0 auto;">
+      ## Please leave this link and use one of the logos provided
+      ## The OpenEdX link may be hidden when this view is served
+      ## through an API to partner sites (such as marketing sites or blogs),
+      ## which are not technically powered by OpenEdX.
+      % if not hide_openedx_link:
         <ul class="logo-list">
           <li>
             <a href="${footer['openedx_link']['url']}" rel="noopener" target="_blank">
@@ -91,17 +87,19 @@
           </li>
         </ul>
       </div>
-      {% if INDIGO_FOOTER_NAV_LINKS %}
       <nav class="nav-colophon" aria-label="${_('About')}">
         <ol>
-            {% for link in INDIGO_FOOTER_NAV_LINKS %}
-            <li>
-              <a href="{{ link['url'] }}">{{ link['title'] }}</a>
-            </li>
-            {% endfor %}
+          <li>
+            <a href="/">${_('Home')}</a>
+          </li>
+          <li>
+            <a href="/courses">${_('Courses')}</a>
+          </li>
+          <li>
+            <a href="/about">${_('About')}</a>
+          </li>
         </ol>
       </nav>
-      {% endif %}
     </div>
     % endif
       <div class="colophon">
@@ -111,14 +109,7 @@
         % endif
 
         ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-          <p class="copyright">${footer['copyright']}
-              % if icp_license_info.get('icp_license'):
-                ${u" | {text}".format(text=icp_license_info.get('text'))}
-                <a href="${icp_license_info.get('icp_license_link', '#')}">
-                    ${u" {icp}".format(icp=icp_license_info.get('icp_license'))}
-                </a>
-              % endif
-          </p>
+          <p class="copyright">© 2009–${datetime.now().year} أكاديمية جيل الترجيح. جميع الحقوق محفوظة.</p>
       </div>
     </footer>
   </div>
