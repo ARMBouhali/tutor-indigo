@@ -120,6 +120,7 @@ indigo_styled_mfes = [
     "profile",
     "account",
     "discussions",
+    "catalog",
 ]
 
 for mfe in indigo_styled_mfes:
