@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "FFHekaya-Light";
+    src:
+        url("../fonts/FFHekaya-Light.woff2") format("woff2"),
+        url("../fonts/FFHekaya-Light.woff") format("woff"),
+        url("../fonts/FFHekaya-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "FFShamelFamily-SansOneBold";
+    src:
+        url("../fonts/FFShamelFamily-SansOneBold.woff2") format("woff2"),
+        url("../fonts/FFShamelFamily-SansOneBold.woff") format("woff"),
+        url("../fonts/FFShamelFamily-SansOneBold.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Baghdad";
+    src:
+        url("../fonts/Baghdad.woff2") format("woff2"),
+        url("../fonts/Baghdad.woff") format("woff"),
+        url("../fonts/Baghdad.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
